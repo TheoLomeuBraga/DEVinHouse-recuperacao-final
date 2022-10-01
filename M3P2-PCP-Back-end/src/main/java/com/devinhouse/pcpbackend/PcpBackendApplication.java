@@ -10,6 +10,7 @@ public class PcpBackendApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(PcpBackendApplication.class, args);
+		
 	}
 
 }
