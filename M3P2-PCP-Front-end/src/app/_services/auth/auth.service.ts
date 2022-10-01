@@ -48,7 +48,6 @@ export class AuthService {
   }
 
   login(username: string, password: string): Observable<any> {
-    console.log(password)
     const params = new HttpParams()
       .set('username', username)
       .set('password', btoa(password))

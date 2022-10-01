@@ -22,8 +22,8 @@ export class CourseClassReadComponent {
   constructor(private service: CourseClassService, private eventService: EventService, private headerService: HeaderService) {
 
     headerService.headerData = {
-      title: 'Turmas',
-      routerUrl: 'layout/turmas'
+      title: 'classes',
+      routerUrl: 'layout/classes'
     }
    }
   display: boolean = false;

@@ -47,7 +47,7 @@ public class CourseClassController {
 			UriComponentsBuilder uriComponentsBuilder) {
 		try {
 			ClassEntity classEntity = service.createClassEntity(modelMapper.map(classDto, ClassEntity.class));
-			URI uri = uriComponentsBuilder.path("/turmas/{id}").buildAndExpand(classEntity.getId()).toUri();
+			URI uri = uriComponentsBuilder.path("/classes/{id}").buildAndExpand(classEntity.getId()).toUri();
 			return ResponseEntity.created(uri).body(modelMapper.map(classEntity, ClassCreateDto.class));
 		} catch (Exception e) {
 			throw new ApiException(HttpStatus.BAD_REQUEST, e.getMessage());
@@ -59,14 +59,14 @@ public class CourseClassController {
 			@PathVariable Long id, UriComponentsBuilder uriComponentsBuilder) {
 		try {
 			ClassEntity classEntity = service.updateClassEntity(modelMapper.map(classUpdateDto, ClassEntity.class), id);
-			URI uri = uriComponentsBuilder.path("/turmas/{id}").buildAndExpand(classEntity.getId()).toUri();
+			URI uri = uriComponentsBuilder.path("/classes/{id}").buildAndExpand(classEntity.getId()).toUri();
 			return ResponseEntity.created(uri).body(modelMapper.map(classEntity, ClassUpdateDto.class));
 		} catch (Exception e) {
 			throw new ApiException(HttpStatus.NOT_FOUND, e.getMessage());
 		}
 	}
 
-    @GetMapping("/listar")
+    @GetMapping("/list")
     public ResponseEntity<List<ClassReadDto>> findAll(@RequestParam(value = "page", defaultValue = "0") int page, @RequestParam(value = "limit", defaultValue = "100") int limit) {
         List<ClassReadDto> returnValue = new ArrayList<>();
         List<ClassEntity> classesEntity = service.findAll(page, limit);
@@ -74,7 +74,7 @@ public class CourseClassController {
         return ResponseEntity.ok().body(returnValue);
     }
 
-	@GetMapping("/listar/{id}")
+	@GetMapping("/list/{id}")
 	public ResponseEntity<ClassUpdateDto> findById(@PathVariable Long id) {
 		try {
 			return ResponseEntity.ok().body(service.findById(id));
@@ -83,7 +83,7 @@ public class CourseClassController {
 		}
 	}
     
-    @PatchMapping("/arquivar")
+    @PatchMapping("/to_file")
     public void updateArchived(@RequestBody @Valid ClassArchiveDto archiveUpdateDto) {
     	service.setArchivedClass(archiveUpdateDto);
     }

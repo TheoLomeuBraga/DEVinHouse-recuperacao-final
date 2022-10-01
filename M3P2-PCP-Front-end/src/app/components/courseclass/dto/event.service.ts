@@ -8,7 +8,7 @@ import { Message, MessageService } from 'primeng/api';
   providedIn: 'root'
 })
 export class EventService {
-  baseUrl = '/api/historico';
+  baseUrl = '/api/historic';
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
@@ -28,7 +28,7 @@ export class EventService {
   }
 
   readById(id: number): Observable<content[]> {
-    const url = `${this.baseUrl}/turmas/${id}`;
+    const url = `${this.baseUrl}/classes/${id}`;
     return this.http.get<content>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))

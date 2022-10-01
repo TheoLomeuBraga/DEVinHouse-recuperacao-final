@@ -28,7 +28,7 @@ export class CourseClassService {
     }]
   }
 
-  baseUrl = '/api/turmas';
+  baseUrl = '/api/classes';
 
   constructor(private http: HttpClient, private messageService: MessageService) { }
 
@@ -48,14 +48,14 @@ export class CourseClassService {
   }
 
   read(): Observable<CourseClassReadDto[]> {
-    return this.http.get<CourseClassReadDto[]>(this.baseUrl+'/listar').pipe(
+    return this.http.get<CourseClassReadDto[]>(this.baseUrl+'/list').pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
     );
   }
 
   readById(id: number): Observable<CourseClassUpdateDto> {
-    const url = `${this.baseUrl}/listar/${id}`;
+    const url = `${this.baseUrl}/list/${id}`;
     return this.http.get<CourseClassUpdateDto>(url).pipe(
       map((obj) => obj),
       catchError((e) => this.errorHandler(e))
@@ -75,7 +75,7 @@ export class CourseClassService {
       classId: courseClass.classId,
       archived: courseClass.archive
     };
-    return this.http.patch(`${this.baseUrl}/arquivar`, body);
+    return this.http.patch(`${this.baseUrl}/to_file`, body);
   }
 
   errorHandler(e: any): Observable<any> {
