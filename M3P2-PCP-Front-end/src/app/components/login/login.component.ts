@@ -43,7 +43,6 @@ export class LoginComponent implements OnInit {
           this.successMessage = 'Bem vindo!';
         }
         console.log("Token: " + JSON.stringify(response));
-        console.log(response);
         this.router.navigate(['/layout/home'])
       }, errorResponse => {
         this.loginError = true;
