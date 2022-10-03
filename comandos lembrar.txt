@@ -1,6 +1,3 @@
-netstat  -ano  |  findstr 8080
-taskkill /F /PID <id do proceso>
-
 cd M3P2-PCP-Front-end
 npm run start
 
