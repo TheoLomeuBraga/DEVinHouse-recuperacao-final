@@ -93,7 +93,6 @@ export class RegisterweekupdateComponent implements OnInit {
   }
 
   saveModule() {
-     console.log(this.courseClassDto);
       this.courseClassServiceDto.update(this.courseClassDto).subscribe(() => {
       this.router.navigate(['/layout/turmas']);
     });

@@ -63,8 +63,6 @@ export class CourseClassUpdateComponent implements OnInit {
     let endDate = `${day}/${month}/${year}`;
     course.endDate=endDate;
 
-    console.log(this.courseClass);
-
     this.courseClass = course;
     });
   }

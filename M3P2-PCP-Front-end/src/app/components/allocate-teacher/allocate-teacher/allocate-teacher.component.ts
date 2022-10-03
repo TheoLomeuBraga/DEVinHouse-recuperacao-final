@@ -38,9 +38,7 @@ export class AllocateTeacherComponent implements OnInit {
     
     setTimeout(() => {
       this.monthNames = this.allocationData.monthsDropdown;
-      console.log(this.allocationData)
       var mydate = new Date(this.allocationData[5].weekInitialDates[0]);
-      console.log(mydate.getDay());
     },2000)
   }
 

@@ -75,9 +75,7 @@ export class CourseClassCreateComponent implements OnInit {
       }
 
       this.numberOfWeek = this.courseClassDto.moduleEntityList.length;
-      console.log(typeof this.courseClassDto.moduleEntityList.length);
       this.numberOfWeek = this.selectedModule;
-      console.log(this.selectedModule);
 
       this.courseClassContextService.setCourseClass(this.courseClassDto);
       this.router.navigate(['/layout/turmas/modulo']);
